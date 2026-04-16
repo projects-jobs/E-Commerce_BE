@@ -1,0 +1,14 @@
+# Dependency folders
+node_modules/
+
+# Environment variables
+.env
+
+# Package lock files
+package-lock.json
+
+# Build files (if you eventually add frontend)
+dist/
+build/
+
+public/images/
