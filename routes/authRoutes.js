@@ -1,13 +1,11 @@
-const express = require("express");
-const router = express.Router();
-// This line must match the filename in the controllers folder exactly
-const { register, login, getMe, updateProfile, changePassword } = require("../controller/Authcontroller");
+// routes/Auth.js
+const { Router } = require("express");
+const r = Router();
+const c = require("../controller/Authcontroller");
 const { protect } = require("../middleware/Auth");
-
-router.post("/register", register);
-router.post("/login", login);
-router.get("/me", protect, getMe);
-router.put("/update-profile", protect, updateProfile);
-router.put("/change-password", protect, changePassword);
-
-module.exports = router;
+r.post("/register", c.register);
+r.post("/login",    c.login);
+r.get("/me",        protect, c.getMe);
+r.put("/update-profile",  protect, c.updateProfile);
+r.put("/change-password", protect, c.changePassword);
+module.exports = r;
